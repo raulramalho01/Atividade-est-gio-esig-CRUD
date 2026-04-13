@@ -66,7 +66,7 @@ cd Atividade-est-gio-esig-CRUD
 ### 2: Buildar o projeto
 
 ```bash
-cd estagio_esig_projeto
+cd Atividade-est-gio-esig-CRUD
 mvn clean compile
 ```
 
