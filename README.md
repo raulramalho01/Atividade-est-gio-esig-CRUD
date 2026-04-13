@@ -20,7 +20,7 @@ d) Classe Main.java para teste manual da entidade Tarefa e do acesso ao banco de
 
 ## Video de Apresentacao
 
-[Link para o video](#)
+[Link para o video](https://studio.youtube.com/video/OgT6ngyJTcI/edit)
 
 ---
 
