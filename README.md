@@ -1,18 +1,20 @@
 # Sistema de Gestao de Tarefas
 
+Aplicacao Java Web desenvolvida como atividade pratica do processo seletivo da ESIG Group para a vaga de Estagio Pessoa Desenvolvedora Java.
+
 Consiste em um gerenciador de tarefas com as funcionalidades de criar, atualizar, remover, listar e concluir tarefas. Cada tarefa possui titulo, descricao, responsavel, prioridade (alta, media, baixa), deadline e situacao (em andamento ou concluida). A listagem permite filtrar tarefas por numero, titulo/descricao, responsavel e situacao.
 
 ---
 
 ## Itens Implementados
 
-a. Aplicacao Java Web utilizando JavaServer Faces (JSF) com Mojarra 2.3.18 e componentes PrimeFaces 12.0.0 para a interface. Gerenciamento de beans via CDI com Weld 3.1.9.
+a) Aplicacao Java Web utilizando JavaServer Faces (JSF) com Mojarra 2.3.18 e componentes PrimeFaces 12.0.0 para a interface. Gerenciamento de beans via CDI com Weld 3.1.9.
 
-b. Persistencia em banco de dados PostgreSQL 16.13 utilizando driver JDBC 42.7.3.
+b) Persistencia em banco de dados PostgreSQL 16.13 utilizando driver JDBC 42.7.3.
 
-c. JPA com Hibernate 5.6.15 como provider. As entidades sao mapeadas com annotations e as tabelas sao criadas automaticamente via hibernate.hbm2ddl.auto=update.
+c) JPA com Hibernate 5.6.15 como provider. As entidades sao mapeadas com annotations e as tabelas sao criadas automaticamente via hibernate.hbm2ddl.auto=update.
 
-d. Classe Main.java para teste manual da entidade Tarefa e do acesso ao banco de dados via EntityManager, validando o ciclo completo de CRUD antes da integracao com o frontend.
+d) Classe Main.java para teste manual da entidade Tarefa e do acesso ao banco de dados via EntityManager, validando o ciclo completo de CRUD antes da integracao com o frontend.
 
 ---
 
@@ -29,9 +31,44 @@ d. Classe Main.java para teste manual da entidade Tarefa e do acesso ao banco de
 - Java JDK 17.0.8
 - Apache Maven 3.8+
 - PostgreSQL 16.13
-- Apache Tomcat 9.0.x ( versão core )
+- Apache Tomcat 9.0.x
 
-### 1: Criar o banco de dados
+### 1: Criar o repositorio com Maven
+
+```bash
+mvn archetype:generate \
+  -DgroupId=com.esig.estagio \
+  -DartifactId=estagio_esig_projeto \
+  -DarchetypeArtifactId=maven-archetype-webapp \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DinteractiveMode=false
+```
+
+Em seguida, criar os pacotes dentro de `src/main/java/com/esig/estagio/`:
+
+```bash
+mkdir -p src/main/java/com/esig/estagio/model
+mkdir -p src/main/java/com/esig/estagio/dao
+mkdir -p src/main/java/com/esig/estagio/controller
+mkdir -p src/main/resources/META-INF
+```
+
+### 2: Buildar o projeto
+
+```bash
+cd estagio_esig_projeto
+mvn clean compile
+```
+
+Para gerar o WAR de deploy:
+
+```bash
+mvn clean package
+```
+
+O arquivo `estagio_esig_projeto.war` sera gerado em `target/`.
+
+### 3: Criar o banco de dados
 
 ```bash
 sudo -u postgres psql
@@ -44,7 +81,7 @@ GRANT ALL PRIVILEGES ON DATABASE estagio_esig TO admin;
 \q
 ```
 
-### 2: Configurar a conexao
+### 4: Configurar a conexao
 
 O arquivo `src/main/resources/META-INF/persistence.xml` ja vem configurado com:
 
@@ -54,14 +91,7 @@ O arquivo `src/main/resources/META-INF/persistence.xml` ja vem configurado com:
 
 Altere se necessario para o seu ambiente.
 
-### 3: Compilar e gerar o WAR
-
-```bash
-cd estagio_esig_projeto
-mvn clean package
-```
-
-### 4: Fazer deploy no Tomcat 9
+### 5: Fazer deploy no Tomcat 9
 
 ```bash
 cp target/estagio_esig_projeto.war /caminho/do/tomcat9/webapps/
@@ -73,7 +103,7 @@ Inicie o Tomcat:
 /caminho/do/tomcat9/bin/startup.sh
 ```
 
-### 5: Acessar a aplicacao
+### 6: Acessar a aplicacao
 
 ```
 http://localhost:8080/estagio_esig_projeto/index.xhtml
