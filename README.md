@@ -89,7 +89,7 @@ O arquivo `src/main/resources/META-INF/persistence.xml` ja vem configurado com:
 - Usuario: admin
 - Senha: admin123
 
-Altere se necessario para o seu ambiente.
+Altere estagio_esig,admin e admin123 se necessario para o seu ambiente.
 
 ### 5: Fazer deploy no Tomcat 9
 
