@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ============================================================= -->
+    <!-- Coordenadas do Projeto                                        -->
+    <!-- ============================================================= -->
+    <groupId>com.esig.estagio</groupId>
+    <artifactId>estagio_esig_projeto</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>Sistema de Gestão de Tarefas - ESIG</name>
+    <description>
+        Aplicação Java Web com JSF para gerenciamento de tarefas.
+        Atividade prática do processo seletivo ESIG Group - Estágio Pessoa Desenvolvedora Java.
+    </description>
+
+    <!-- ============================================================= -->
+    <!-- Propriedades                                                  -->
+    <!-- ============================================================= -->
+    <properties>
+        <!-- Java -->
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Jakarta / Java EE -->
+        <jsf.version>2.3.18</jsf.version>
+        <jstl.version>1.2</jstl.version>
+        <servlet.version>4.0.1</servlet.version>
+        <cdi.version>2.0</cdi.version>
+        <weld.version>3.1.9.Final</weld.version>
+
+        <!-- JPA / Hibernate -->
+        <hibernate.version>5.6.15.Final</hibernate.version>
+        <jakarta-persistence.version>2.2.3</jakarta-persistence.version>
+
+        <!-- PostgreSQL -->
+        <postgresql.version>42.7.3</postgresql.version>
+
+        <!-- PrimeFaces (opcional - melhoria visual) -->
+        <primefaces.version>13.0.5</primefaces.version>
+
+        <!-- Testes -->
+        <junit.version>5.10.2</junit.version>
+        <mockito.version>5.11.0</mockito.version>
+        <h2.version>2.2.224</h2.version>
+
+        <!-- Plugins -->
+        <war-plugin.version>3.4.0</war-plugin.version>
+        <compiler-plugin.version>3.12.1</compiler-plugin.version>
+        <surefire-plugin.version>3.2.5</surefire-plugin.version>
+    </properties>
+
+    <!-- ============================================================= -->
+    <!-- Dependências                                                  -->
+    <!-- ============================================================= -->
+    <dependencies>
+
+        <!-- ======================================================= -->
+        <!-- a) JSF - JavaServer Faces (Mojarra - implementação ref.) -->
+        <!-- ======================================================= -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.faces</artifactId>
+            <version>${jsf.version}</version>
+        </dependency>
+
+        <!-- JSTL (necessário para tags JSF) -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <!-- Servlet API (provided pelo servidor) -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- CDI API (para @Named, @RequestScoped etc.) -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>${cdi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Weld Servlet (implementação CDI para Tomcat) -->
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-shaded</artifactId>
+            <version>${weld.version}</version>
+        </dependency>
+
+        <!-- ======================================================= -->
+        <!-- b) PostgreSQL - Driver JDBC                              -->
+        <!-- ======================================================= -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+        <!-- ======================================================= -->
+        <!-- c) JPA - Jakarta Persistence + Hibernate                 -->
+        <!-- ======================================================= -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>${jakarta-persistence.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- ======================================================= -->
+        <!-- PrimeFaces (opcional - componentes visuais melhorados)   -->
+        <!-- ======================================================= -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>12.0.0</version>
+        </dependency>
+
+        <!-- ======================================================= -->
+        <!-- d) Testes de Unidade                                     -->
+        <!-- ======================================================= -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- H2 para testes (banco em memória) -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- ============================================================= -->
+    <!-- Build                                                         -->
+    <!-- ============================================================= -->
+    <build>
+        <finalName>estagio_esig_projeto</finalName>
+
+        <plugins>
+            <!-- Compilador Java 17 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- Empacotamento WAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${war-plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+            <!-- Testes com JUnit 5 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

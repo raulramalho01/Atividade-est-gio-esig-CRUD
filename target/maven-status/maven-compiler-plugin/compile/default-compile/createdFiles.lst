@@ -1,0 +1,6 @@
+com/esig/estagio/model/Prioridade.class
+com/esig/estagio/model/Tarefa.class
+com/esig/estagio/Main.class
+com/esig/estagio/controller/TarefaController.class
+com/esig/estagio/dao/TarefaDAO.class
+com/esig/estagio/model/Situacao.class
