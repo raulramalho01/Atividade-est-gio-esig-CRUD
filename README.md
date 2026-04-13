@@ -56,7 +56,7 @@ mkdir -p src/main/java/com/esig/estagio/dao
 mkdir -p src/main/java/com/esig/estagio/controller
 mkdir -p src/main/resources/META-INF
 ```
-### 1: Gitclone nesse repositório
+### 1: Gitclone esse repositório
 
 ```bash
 git clone https://github.com/raulramalho01/Atividade-est-gio-esig-CRUD.git
