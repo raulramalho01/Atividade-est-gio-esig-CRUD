@@ -33,7 +33,11 @@ d) Classe Main.java para teste manual da entidade Tarefa e do acesso ao banco de
 - PostgreSQL 16.13 [link Download](https://www.postgresql.org/download/)
 - Apache Tomcat 9.0.x (core version) [link Download](https://tomcat.apache.org/download-90.cgi)
 
-### 1: Criar o repositorio com Maven
+
+- O uso do Maven é fortemente recomendado.
+
+
+### 1: Criar o repositorio com Maven (Opcional)
 
 ```bash
 mvn archetype:generate \
