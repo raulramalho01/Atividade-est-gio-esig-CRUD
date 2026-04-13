@@ -37,7 +37,7 @@ d) Classe Main.java para teste manual da entidade Tarefa e do acesso ao banco de
 - O uso do Maven é fortemente recomendado.
 
 
-### 1: Criar o repositorio com Maven (Opcional)
+### 0: Criar o repositorio com Maven (Etapa Opcional)
 
 ```bash
 mvn archetype:generate \
@@ -55,6 +55,12 @@ mkdir -p src/main/java/com/esig/estagio/model
 mkdir -p src/main/java/com/esig/estagio/dao
 mkdir -p src/main/java/com/esig/estagio/controller
 mkdir -p src/main/resources/META-INF
+```
+### 1: Gitclone nesse repositório
+
+```bash
+git clone https://github.com/raulramalho01/Atividade-est-gio-esig-CRUD.git
+cd Atividade-est-gio-esig-CRUD
 ```
 
 ### 2: Buildar o projeto
