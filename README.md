@@ -28,10 +28,10 @@ d) Classe Main.java para teste manual da entidade Tarefa e do acesso ao banco de
 
 ### Pre-requisitos
 
-- Java JDK 17.0.8
-- Apache Maven 3.8+
-- PostgreSQL 16.13
-- Apache Tomcat 9.0.x (core version)
+- Java JDK 17.0.8 [link Download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+- Apache Maven 3.8+ ou superiores [link Download](https://maven.apache.org/docs/3.8.8/release-notes.html)
+- PostgreSQL 16.13 [link Download](https://www.postgresql.org/download/)
+- Apache Tomcat 9.0.x (core version) [link Download](https://tomcat.apache.org/download-90.cgi)
 
 ### 1: Criar o repositorio com Maven
 
@@ -113,7 +113,7 @@ http://localhost:8080/estagio_esig_projeto/index.xhtml
 
 ## Tecnologias e Versoes
 
-- Java 17.0.8 [link download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+- Java 17.0.8 
 - Maven 3.8+
 - JSF (Mojarra) 2.3.18
 - PrimeFaces 12.0.0
